@@ -1,2 +1,2 @@
 # python-challenge
-week 3 hw python
+Week 3 Python HW
