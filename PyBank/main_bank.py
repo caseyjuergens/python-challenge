@@ -6,7 +6,7 @@ import csv
 Pybank_csv = os.path.join("Resources", "budget_data.csv")
 
 #create function with "budgetdata" as parameter
-def PyBank_Totals(budget_data)
+def PyBank_Totals(print_totals):
     #create variables
     month = str(Pybank_csv[0])
     ProfitLoss = int(Pybank_csv[1])
