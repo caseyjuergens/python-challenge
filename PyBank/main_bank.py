@@ -6,10 +6,10 @@ import csv
 Pybank_csv = os.path.join("Resources", "budget_data.csv")
 
 #create function with "budgetdata" as parameter
-def PyBank_Totals(print_totals):
+def Print_totals(Pybank_info):
     #create variables
-    month = str(Pybank_csv[0])
-    ProfitLoss = int(Pybank_csv[1])
+    month = str(Pybank_info[0])
+    ProfitLoss = int(Pybank_info[1])
 
     #find total months included in data set
     total_months = len(month)
@@ -22,9 +22,12 @@ def PyBank_Totals(print_totals):
     
     #calculate changes in profits/losses for entire period/find average
 
+
     #find greatest increase in profits (date and amount) 
 
+
     #find greatest decrease in losees (date and amount)
+
 
 #open and read budget data
 with open(Pybank_csv) as csvfile:
@@ -33,6 +36,6 @@ with open(Pybank_csv) as csvfile:
     #ignore header
     header = next(csvreader)
     print(header)
-
-
-#final script printing results, and export text file
+    
+    #final script printing results, and export text file
+    print(Print_totals)
