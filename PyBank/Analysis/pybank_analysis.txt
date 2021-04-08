@@ -1,0 +1,7 @@
+Financial Analysis
+----------------------------
+Total months: 1
+Net total: $867884
+Average change: $867884
+Greatest Increase in Profit: $['12-Feb', '1170593']
+Greatest Decrease in Profit: ['13-Sep', '-1196225']
