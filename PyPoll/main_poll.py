@@ -30,13 +30,17 @@ with open(pypoll_csv) as csvfile:
         # if we come across a vote for a candidate who is not already in our individual list
         if candidates not in individual_candidates: 
 
-            # use append to add them to indiviual_candidates 
+            # use append to add them to indiviual_candidates list and to the votes for candidates list
             individual_candidates.append(candidates)
+            votes_for_candidates.append(1)
 
-            # start counting votes for that individual candidate
-            votes_for_candidates[individual_candidates] = 0
+        # else, if that person is already in the individual candidates list
+        else:
 
-            # add 1 to votes_for_candidates
+            #create and index of the individual candidates
+            individual_candidates_index = individual_candidates.index(row[2])
+            # add 1 vote to the individual
+            votes_for_candidates[individual_candidates_index] += 1
             
        
 
@@ -51,7 +55,7 @@ output= (
     f'----------------------------\n'
     f'Total Votes: {total_votes} \n'
     f'----------------------------\n'
-    f'Khan: \n'
+    f'Khan: [{votes_for_candidates} n'
     f'Correy: \n'
     f'Li: \n'
     f"O'Tooley: \n"
