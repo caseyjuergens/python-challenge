@@ -43,28 +43,21 @@ with open(pypoll_csv) as csvfile:
             # add 1 vote to the individual
             votes_for_candidates[individual_candidates_index] += 1
 
-            
-
-           
-            
     # percentage of votes each candidate won
-    # find the winner 
-for i in range(len(votes_for_candidates)):
-    perc_votes.append(round((votes_for_candidates[i] / total_votes)*100)
-    return str(perc_votes) + "%"
+    for i in range(len(votes_for_candidates)):
+        perc_votes.append (round((votes_for_candidates[i]/total_votes)*100))
+        
+    
 
-zipped_lists= zip(individual_candidates, votes_for_candidates, perc_votes)
-zipped_lists= list(zipped_lists)
-
-output= (
+output=(
     f'Election Results\n'
     f'----------------------------\n'
     f'Total Votes: {total_votes} \n'
     f'----------------------------\n'
-    f" {zipped_lists}\n"
+    f'{individual_candidates}: {perc_votes}%, ({votes_for_candidates})\n'
     f'----------------------------\n'
-    f'The winner is:'
-    f'----------------------------\n'
+    f'The winner is: '
+    f'----------------------------\n' 
 )
 
 #outside loop
