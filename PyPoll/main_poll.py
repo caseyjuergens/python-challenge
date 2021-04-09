@@ -11,6 +11,7 @@ total_votes = 0
 # empty lists for candidates and their vote counts
 individual_candidates = []
 votes_for_candidates =[]
+perc_votes = []
 
 #open and read budget data
 with open(pypoll_csv) as csvfile:
@@ -41,26 +42,28 @@ with open(pypoll_csv) as csvfile:
             individual_candidates_index = individual_candidates.index(row[2])
             # add 1 vote to the individual
             votes_for_candidates[individual_candidates_index] += 1
+
             
-       
 
-        # percentage of votes each candidate won
+           
+            
+    # percentage of votes each candidate won
+    # find the winner 
+for i in range(len(votes_for_candidates)):
+    perc_votes.append(round((votes_for_candidates[i] / total_votes)*100)
+    return str(perc_votes) + "%"
 
-
-        # find the winner
-
+zipped_lists= zip(individual_candidates, votes_for_candidates, perc_votes)
+zipped_lists= list(zipped_lists)
 
 output= (
     f'Election Results\n'
     f'----------------------------\n'
     f'Total Votes: {total_votes} \n'
     f'----------------------------\n'
-    f'Khan: [{votes_for_candidates} n'
-    f'Correy: \n'
-    f'Li: \n'
-    f"O'Tooley: \n"
+    f" {zipped_lists}\n"
     f'----------------------------\n'
-    f'Winner: \n'
+    f'The winner is:'
     f'----------------------------\n'
 )
 
