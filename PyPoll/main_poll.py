@@ -14,8 +14,7 @@ individual_candidates = []
 votes_for_candidates =[]
 perc_votes = []
 percentages= []
-winner=0
-
+results = []
 
 #open and read budget data
 with open(pypoll_csv) as csvfile:
@@ -51,15 +50,15 @@ with open(pypoll_csv) as csvfile:
     for i in range(len(votes_for_candidates)):
         perc_votes.append (round((votes_for_candidates[i]/total_votes)*100))
         percentages= list(map("{}%".format, perc_votes))
-
+       
 # use zip function to integrate all 3 lists together
     
 zipped_lists= zip(individual_candidates, percentages, votes_for_candidates)
 zipped_lists= list(zipped_lists)   
         
-#determine winner
-winner= max(zipped_lists) 
-print(winner)   
+#determine winner by finding highest vote count, and using index to determine name
+winning_votes = max(votes_for_candidates)
+winner = individual_candidates[votes_for_candidates.index(winning_votes)]
 
 output=(
     f'Election Results\n'
@@ -68,7 +67,7 @@ output=(
     f'----------------------------\n'
     f'{zipped_lists}\n'
     f'----------------------------\n'
-    f'The winner is: '
+    f'The winner is: {winner} \n'
     f'----------------------------\n' 
 )
 
